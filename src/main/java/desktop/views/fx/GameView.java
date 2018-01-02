@@ -26,6 +26,11 @@ public class GameView extends GridPane implements IView {
     private boolean isMoving = false;
     private GUIBoard board;
 
+    /**
+     * Standard constructor
+     *
+     * @param stage	The JavaFX stage of this view
+     */
     public GameView(Stage stage, int playerCount, int playerIndex) {
         this.stage = stage;
 
@@ -40,6 +45,9 @@ public class GameView extends GridPane implements IView {
         createWindow();
     }
 
+    /**
+     * Initialize the GUI here
+     */
     private void createWindow() {
         board = new GUIBoard(playerCount, playerIndex);
         if (isMoving) board.startPlayerTurn();
@@ -75,6 +83,11 @@ public class GameView extends GridPane implements IView {
         alert.showAndWait();
     }
 
+    /**
+     * Callback from the client when a message is received
+     *
+     * @param msg	The message that was received
+     */
     @Override
     public void handleInput(String msg) {
         Map<String, Object> response = Client.getInstance().parser.parse(msg);

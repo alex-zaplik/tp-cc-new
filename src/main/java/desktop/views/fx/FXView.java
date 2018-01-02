@@ -10,10 +10,21 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Abstract class representing a standard for a view in this app
+ */
 public abstract class FXView extends GridPane implements IView {
 
+	/**
+	 * The JavaFX stage of this view
+	 */
 	Stage stage;
 
+	/**
+	 * Standard constructor
+	 *
+	 * @param stage	The JavaFX stage of this view
+	 */
 	FXView(Stage stage) {
 		this.stage = stage;
 
@@ -25,6 +36,11 @@ public abstract class FXView extends GridPane implements IView {
 		createWindow();
 	}
 
+	/**
+	 * Displaying an error message as an {@link Alert}
+	 *
+	 * @param msg	The message to be displayed
+	 */
 	void displayErrorMessage(String msg) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setTitle("Error");
@@ -34,5 +50,8 @@ public abstract class FXView extends GridPane implements IView {
 		alert.showAndWait();
 	}
 
+	/**
+	 * Initialize the GUI here
+	 */
 	protected abstract void createWindow();
 }

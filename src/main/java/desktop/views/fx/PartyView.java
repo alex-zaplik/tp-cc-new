@@ -7,12 +7,25 @@ import javafx.stage.Stage;
 
 import java.util.Map;
 
+/**
+ * Just a start button
+ *
+ * @author Aleksander Lasecki
+ */
 public class PartyView extends FXView {
 
+    /**
+     * Standard constructor
+     *
+     * @param stage	The JavaFX stage of this view
+     */
 	public PartyView(Stage stage) {
 		super(stage);
 	}
 
+    /**
+     * Initialize the GUI here
+     */
 	@Override
 	protected void createWindow() {
 		Button start = new Button("Start");
@@ -21,6 +34,11 @@ public class PartyView extends FXView {
 		add(start, 0, 0);
 	}
 
+	/**
+	 * Callback from the client when a message is received
+	 *
+	 * @param msg	The message that was received
+	 */
 	@Override
 	public void handleInput(String msg) {
 		Map<String, Object> response = Client.getInstance().parser.parse(msg);

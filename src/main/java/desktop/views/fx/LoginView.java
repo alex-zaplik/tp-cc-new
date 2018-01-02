@@ -15,14 +15,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * The login from
+ *
+ * @author Aleksander Lasecki
+ */
 public class LoginView extends FXView {
 
+    /**
+     * List of messages received in this view
+     */
 	private List<String> pendingMsg = new ArrayList<>();
 
+    /**
+     * Standard constructor
+     *
+     * @param stage	The JavaFX stage of this view
+     */
 	public LoginView(Stage stage) {
 		super(stage);
 	}
 
+    /**
+     * Initialize the GUI here
+     */
 	@Override
 	protected void createWindow() {
 		HBox bAddress = new HBox();
@@ -84,6 +100,11 @@ public class LoginView extends FXView {
 		add(exit, 1, 4);
 	}
 
+	/**
+	 * Callback from the client when a message is received
+	 *
+	 * @param msg	The message that was received
+	 */
 	@Override
 	public void handleInput(String msg) {
 		pendingMsg.add(msg);

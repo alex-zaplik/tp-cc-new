@@ -7,12 +7,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+/**
+ * The main menu
+ *
+ * @author Aleksander Lasecki
+ */
 public class MainView extends FXView {
 
+    /**
+     * Standard constructor
+     *
+     * @param stage	The JavaFX stage of this view
+     */
 	public MainView(Stage stage) {
 		super(stage);
 	}
 
+    /**
+     * Initialize the GUI here
+     */
 	protected void createWindow() {
 		Image logo = new Image("/logo.png");
         ImageView logoView = new ImageView(logo);
@@ -34,6 +47,11 @@ public class MainView extends FXView {
 		add(exit, 1, 2);
 	}
 
+	/**
+	 * Callback from the client when a message is received
+	 *
+	 * @param msg	The message that was received
+	 */
 	@Override
 	public void handleInput(String msg) {
 

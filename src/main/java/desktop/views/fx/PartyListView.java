@@ -53,10 +53,18 @@ public class PartyListView extends FXView {
 		});
 	};
 
+    /**
+     * Standard constructor
+     *
+     * @param stage	The JavaFX stage of this view
+     */
 	public PartyListView(Stage stage) {
 		super(stage);
 	}
 
+    /**
+     * Initialize the GUI here
+     */
 	@Override
 	protected void createWindow() {
 		parties = FXCollections.observableArrayList(p -> new Observable[] {p.nameValueProperty(), p.leftValueProperty(), p.maxValueProperty()});
@@ -160,6 +168,11 @@ public class PartyListView extends FXView {
 		add(partyTable, 0, 0, 3, 1);
 	}
 
+	/**
+	 * Callback from the client when a message is received
+	 *
+	 * @param msg	The message that was received
+	 */
 	@Override
 	public void handleInput(String msg) {
 		try {
