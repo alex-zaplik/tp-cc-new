@@ -50,6 +50,7 @@ public class GameView extends GridPane implements IView {
         skip.setOnAction(event -> {
             Client.getInstance().skipMove();
             board.setLastPawnMovedByMe(null);
+            board.startEnemyTurn();
         });
         add(skip, 1, 0);
 
